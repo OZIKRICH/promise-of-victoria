@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "beckett": {
+        "type": "remote",
+        "url": "http://127.0.0.1:8770/mcp/7d099fe050f0fc8392f8f7072ca3f6af"
+      }
+    }
+  }
+}

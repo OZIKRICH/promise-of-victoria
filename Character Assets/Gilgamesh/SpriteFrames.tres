@@ -1,0 +1,130 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bor0dxn74xws5"]
+
+[ext_resource type="Texture2D" uid="uid://cxkg6v5ja1mfk" path="res://Character Assets/Gilgamesh/Block/frame-1.png" id="1_6wpbj"]
+[ext_resource type="Texture2D" uid="uid://mkoa6kucab7c" path="res://Character Assets/Gilgamesh/Block/frame-2.png" id="2_kdhdb"]
+[ext_resource type="Texture2D" uid="uid://cxuan4a1x8qqc" path="res://Character Assets/Gilgamesh/Block/frame-3.png" id="3_y2faq"]
+[ext_resource type="Texture2D" uid="uid://c8j1clgdd70kf" path="res://Character Assets/Gilgamesh/Block/frame-4.png" id="4_uyphu"]
+[ext_resource type="Texture2D" uid="uid://emattpxrq5e4" path="res://Character Assets/Gilgamesh/Block/frame-5.png" id="5_pbmif"]
+[ext_resource type="Texture2D" uid="uid://bbcq3bsros6at" path="res://Character Assets/Gilgamesh/TakeHit/1H.png" id="6_v76f7"]
+[ext_resource type="Texture2D" uid="uid://b5yj18hsaxpqd" path="res://Character Assets/Gilgamesh/TakeHit/2H.png" id="7_ah4l5"]
+[ext_resource type="Texture2D" uid="uid://crbr2rha5liit" path="res://Character Assets/Gilgamesh/TakeHit/3H.png" id="8_s3hhs"]
+[ext_resource type="Texture2D" uid="uid://cf324ctoyqphh" path="res://Character Assets/Gilgamesh/Jump/1J.png" id="9_g3yry"]
+[ext_resource type="Texture2D" uid="uid://c7uoermb5a01x" path="res://Character Assets/Gilgamesh/Jump/2J.png" id="10_4kq1v"]
+[ext_resource type="Texture2D" uid="uid://c7js4vbx0jpn5" path="res://Character Assets/Gilgamesh/Jump/3J.png" id="11_b15xh"]
+[ext_resource type="Texture2D" uid="uid://btpy15mj6lqv1" path="res://Character Assets/Gilgamesh/Jump/4J.png" id="12_qceoo"]
+[ext_resource type="Texture2D" uid="uid://balen7dgncl0h" path="res://Character Assets/Gilgamesh/Jump/Rev.J5.png" id="13_c8hjt"]
+[ext_resource type="Texture2D" uid="uid://d1juy0exhsahf" path="res://Character Assets/Gilgamesh/Punch/P1.png" id="14_uahoj"]
+[ext_resource type="Texture2D" uid="uid://d2tm62cnvkkbt" path="res://Character Assets/Gilgamesh/Punch/P2.png" id="15_dwm02"]
+[ext_resource type="Texture2D" uid="uid://661ya74swc2e" path="res://Character Assets/Gilgamesh/Punch/P3.png" id="16_r8ofj"]
+[ext_resource type="Texture2D" uid="uid://b74darovbbslp" path="res://Character Assets/Gilgamesh/Punch/P4.png" id="17_qp6p1"]
+[ext_resource type="Texture2D" uid="uid://bech81s3gunbw" path="res://Character Assets/Gilgamesh/Punch/P5.png" id="18_a7ag6"]
+[ext_resource type="Texture2D" uid="uid://de5a3sybd22vd" path="res://Character Assets/Gilgamesh/Run/1.png" id="19_1ugvs"]
+[ext_resource type="Texture2D" uid="uid://c3r0immo1iebh" path="res://Character Assets/Gilgamesh/Run/2.png" id="20_07e5x"]
+[ext_resource type="Texture2D" uid="uid://cvo318w00wj0l" path="res://Character Assets/Gilgamesh/Run/3.png" id="21_gkf00"]
+[ext_resource type="Texture2D" uid="uid://d27d4gjjllayg" path="res://Character Assets/Gilgamesh/Run/4.png" id="22_0kdaa"]
+[ext_resource type="Texture2D" uid="uid://c4ju5wjveakep" path="res://Character Assets/Gilgamesh/Run/5.png" id="23_kdfsa"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6wpbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kdhdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y2faq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uyphu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pbmif")
+}],
+"loop": 1,
+"name": &"Block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_v76f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ah4l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s3hhs")
+}],
+"loop": 0,
+"name": &"Hitted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6wpbj")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_g3yry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4kq1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b15xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qceoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_c8hjt")
+}],
+"loop": 0,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_uahoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dwm02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_r8ofj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qp6p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_a7ag6")
+}],
+"loop": 0,
+"name": &"Punch",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_1ugvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_07e5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gkf00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0kdaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_kdfsa")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]

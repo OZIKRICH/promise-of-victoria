@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://x4dg0vp1hvrl"]
+
+[ext_resource type="Script" uid="uid://b83pi4f21xj7i" path="res://Script/CharacterSelect.cs" id="1_abcde"]
+[ext_resource type="Texture2D" uid="uid://ddwo245fa6pqp" path="res://Background/Colloseum.jpeg" id="2_bg"]
+
+[node name="CharacterSelect" type="Control" unique_id=2000001]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abcde")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="ColorOverlay" type="ColorRect" parent="." unique_id=2000003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=2000004]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_top = 40.0
+offset_bottom = 100.0
+text = "CHARACTER SELECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1Container" type="HBoxContainer" parent="." unique_id=2000005]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = -100.0
+offset_bottom = -180.0
+
+[node name="Portrait" type="TextureRect" parent="P1Container" unique_id=2000006]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="P1Container" unique_id=2000007]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="P1Container/InfoContainer" unique_id=2000008]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="P1Container/InfoContainer" unique_id=2000009]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "GATOT"
+horizontal_alignment = 1
+
+[node name="ReadyLabel" type="Label" parent="P1Container/InfoContainer" unique_id=2000010]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "PRESS A TO CONFIRM"
+horizontal_alignment = 1
+
+[node name="P2Container" type="HBoxContainer" parent="." unique_id=2000011]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 180.0
+offset_right = 1019.0
+offset_bottom = 380.0
+alignment = 2
+
+[node name="Portrait" type="TextureRect" parent="P2Container" unique_id=2000012]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 1
+
+[node name="InfoContainer" type="VBoxContainer" parent="P2Container" unique_id=2000013]
+layout_mode = 2
+alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="P2Container/InfoContainer" unique_id=2000014]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "PLAYER 2"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="P2Container/InfoContainer" unique_id=2000015]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "GATOT"
+horizontal_alignment = 1
+
+[node name="ReadyLabel" type="Label" parent="P2Container/InfoContainer" unique_id=2000016]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "PRESS A TO CONFIRM"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="." unique_id=2000017]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 0
+offset_top = 520.0
+offset_bottom = 580.0
+text = "P1: A/D or Left/Right | P2: Numpad 4/6 | A/Cross = Confirm"
+horizontal_alignment = 1

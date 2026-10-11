@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://b3125xy35j5es"]
+
+[ext_resource type="Script" uid="uid://b25lyk0e144ne" path="res://Script/MainMenu.cs" id="1_abcde"]
+
+[node name="MainMenu" type="Control" unique_id=1000001]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abcde")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1000003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1000004]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "PROMISE OF VICTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer1" type="Control" parent="VBoxContainer" unique_id=1000005]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1000006]
+layout_mode = 2
+alignment = 2
+
+[node name="Spacer2" type="Control" parent="VBoxContainer" unique_id=1000010]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="VBoxContainer" unique_id=1000011]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "↑ / W       Navigate       S / ↓
+
+ENTER / SPACE = Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MenuContainer#PlayLabel" type="Button" parent="." unique_id=1000007]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_left = 432.0
+offset_top = 362.0
+offset_right = 732.0
+offset_bottom = 412.0
+text = "> PLAY"
+
+[node name="MenuContainer#OptionsLabel" type="Button" parent="." unique_id=1000008]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_left = 430.0
+offset_top = 409.0
+offset_right = 730.0
+offset_bottom = 459.0
+text = "  OPTIONS"
+
+[node name="MenuContainer#ExitLabel" type="Button" parent="." unique_id=1000009]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_left = 430.0
+offset_top = 457.0
+offset_right = 730.0
+offset_bottom = 507.0
+text = "  EXIT"

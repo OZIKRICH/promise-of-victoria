@@ -7,12 +7,18 @@ public partial class AttackHitbox : Area2D
 
 	private bool alreadyHit = false;
 
+	private PlayerMovement attacker;
+
 	public override void _Ready()
 	{
 		AreaEntered += OnAreaEntered;
 
-		// Hitbox mati saat game dimulai
-		SetDeferred("monitoring", false);
+		SetDeferred(
+			"monitoring",
+			false
+		);
+
+		attacker = GetParent<PlayerMovement>();
 
 		GD.Print(
 			"AttackHitbox siap: ",
@@ -24,18 +30,28 @@ public partial class AttackHitbox : Area2D
 	{
 		alreadyHit = false;
 
-		// Aktifkan setelah physics frame aman
-		SetDeferred("monitoring", true);
+		SetDeferred(
+			"monitoring",
+			true
+		);
 
-		GD.Print("AttackHitbox AKTIF");
+		GD.Print(
+			GetParent().Name,
+			" AttackHitbox AKTIF"
+		);
 	}
 
 	public void EndAttack()
 	{
-		// Matikan setelah physics frame aman
-		SetDeferred("monitoring", false);
+		SetDeferred(
+			"monitoring",
+			false
+		);
 
-		GD.Print("AttackHitbox MATI");
+		GD.Print(
+			GetParent().Name,
+			" AttackHitbox MATI"
+		);
 	}
 
 	private void OnAreaEntered(Area2D area)
@@ -50,13 +66,30 @@ public partial class AttackHitbox : Area2D
 			return;
 		}
 
-		GD.Print(
-			"AttackHitbox mendeteksi: ",
-			area.Name
-		);
+		// =====================================================
+		// CEK APAKAH HURTBOX MILIK DIRI SENDIRI
+		// =====================================================
 
-		PlayerHealth health = area.GetParent()
-			.GetNodeOrNull<PlayerHealth>("PlayerHealth");
+		Node targetPlayer = area.GetParent();
+
+		if (targetPlayer == GetParent())
+		{
+			GD.Print(
+				GetParent().Name,
+				" menyerang dirinya sendiri → DIABAIKAN"
+			);
+
+			return;
+		}
+
+		// =====================================================
+		// CARI PLAYER HEALTH TARGET
+		// =====================================================
+
+		PlayerHealth health =
+			targetPlayer.GetNodeOrNull<PlayerHealth>(
+				"PlayerHealth"
+			);
 
 		if (health == null)
 		{
@@ -68,13 +101,23 @@ public partial class AttackHitbox : Area2D
 			return;
 		}
 
+		// =====================================================
+		// HIT
+		// =====================================================
+
 		alreadyHit = true;
 
 		GD.Print(
-			"HIT! Damage: ",
+			GetParent().Name,
+			" HIT → ",
+			targetPlayer.Name,
+			" | Damage: ",
 			Damage
 		);
 
-		health.TakeDamage(Damage);
+		health.ReceiveAttack(
+			Damage,
+			attacker
+		);
 	}
 }

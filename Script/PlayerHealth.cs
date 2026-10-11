@@ -6,7 +6,16 @@ public partial class PlayerHealth : Node
 	public int MaxHealth = 100;
 
 	[Export]
-	public float StunDuration = 0.35f;
+	public float StunDuration = 0.4f;
+
+	[Export]
+	public float PerfectBlockStun = 0.35f;
+
+	[Export]
+	public float GuardBreakStun = 1.2f;
+
+	[Export]
+	public float NormalBlockDamageMultiplier = 0.5f;
 
 	private int currentHealth;
 
@@ -15,29 +24,159 @@ public partial class PlayerHealth : Node
 
 	private bool isStunned = false;
 
+	// Signal emitted when health changes
+	[Signal]
+	public delegate void HealthChangedEventHandler(int currentHealth, int maxHealth);
+
+	// Public read-only access to current health
+	public int CurrentHealth => currentHealth;
+
 	public override void _Ready()
 	{
 		currentHealth = MaxHealth;
 
-		sprite = GetParent().GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite = GetParent().GetNode<AnimatedSprite2D>(
+			"AnimatedSprite2D"
+		);
+
 		movement = GetParent().GetNode<PlayerMovement>(".");
 
-		sprite.SpriteFrames.SetAnimationLoop("Hitted", false);
+		sprite.SpriteFrames.SetAnimationLoop(
+			"Hitted",
+			false
+		);
 
 		GD.Print(
 			GetParent().Name,
 			" PlayerHealth siap. HP = ",
 			currentHealth
 		);
+
+		// Emit initial health
+		EmitSignal(SignalName.HealthChanged, currentHealth, MaxHealth);
 	}
 
-	public async void TakeDamage(int damage)
+	// =========================================================
+	// ATTACK RECEIVED
+	// =========================================================
+
+	public async void ReceiveAttack(
+		int damage,
+		PlayerMovement attacker
+	)
 	{
 		if (currentHealth <= 0)
 		{
 			return;
 		}
 
+		// =====================================================
+		// PERFECT BLOCK
+		// =====================================================
+
+		if (movement.IsPerfectBlocking())
+		{
+			GD.Print(
+				GetParent().Name,
+				" PERFECT BLOCK!"
+			);
+
+			// Tidak ada damage
+			GD.Print(
+				GetParent().Name,
+				" tidak menerima damage"
+			);
+
+			// Attacker yang kena stun
+			if (attacker != null)
+			{
+				attacker.SetStunned(true);
+
+				PlayAttackerHitted(attacker);
+
+				await ToSignal(
+					GetTree().CreateTimer(
+						PerfectBlockStun
+					),
+					SceneTreeTimer.SignalName.Timeout
+				);
+
+				if (IsInstanceValid(attacker))
+				{
+					attacker.SetStunned(false);
+				}
+			}
+
+			return;
+		}
+
+		// =====================================================
+		// GUARD BREAK
+		// =====================================================
+
+		if (movement.IsGuardBroken())
+		{
+			int heavyDamage = damage * 2;
+
+			GD.Print(
+				GetParent().Name,
+				" GUARD BREAK / HEAVY HIT!"
+			);
+
+			TakeDamage(
+				heavyDamage,
+				GuardBreakStun
+			);
+
+			return;
+		}
+
+		// =====================================================
+		// NORMAL BLOCK
+		// =====================================================
+
+		if (movement.IsBlocking())
+		{
+			int blockedDamage = Mathf.Max(
+				1,
+				Mathf.RoundToInt(
+					damage * NormalBlockDamageMultiplier
+				)
+			);
+
+			GD.Print(
+				GetParent().Name,
+				" NORMAL BLOCK → Damage ",
+				blockedDamage
+			);
+
+			TakeDamage(
+				blockedDamage,
+				StunDuration
+			);
+
+			return;
+		}
+
+		// =====================================================
+		// NORMAL HIT
+		// =====================================================
+
+		TakeDamage(
+			damage,
+			StunDuration
+		);
+	}
+
+	// =========================================================
+	// DAMAGE
+	// =========================================================
+
+	private async void TakeDamage(
+		int damage,
+		float stunDuration
+	)
+	{
 		currentHealth -= damage;
 
 		GD.Print(
@@ -54,23 +193,22 @@ public partial class PlayerHealth : Node
 			currentHealth
 		);
 
-		// Putuskan stun lama kalau sedang stun
+		// Emit health changed signal for UI
+		EmitSignal(SignalName.HealthChanged, currentHealth, MaxHealth);
+
 		isStunned = true;
 
 		movement.SetStunned(true);
 
-		// Mainkan animasi hit
 		sprite.Play("Hitted");
 
-		GD.Print("Hitted + Stun dijalankan!");
-
-		// Tunggu durasi stun
 		await ToSignal(
-			GetTree().CreateTimer(StunDuration),
+			GetTree().CreateTimer(
+				stunDuration
+			),
 			SceneTreeTimer.SignalName.Timeout
 		);
 
-		// Kalau HP masih ada, pulihkan player
 		if (currentHealth > 0)
 		{
 			isStunned = false;
@@ -84,5 +222,21 @@ public partial class PlayerHealth : Node
 				" selesai stun"
 			);
 		}
+	}
+
+	// =========================================================
+	// ATTACKER HITTED BY PERFECT BLOCK
+	// =========================================================
+
+	private void PlayAttackerHitted(
+		PlayerMovement attacker
+	)
+	{
+		AnimatedSprite2D attackerSprite =
+			attacker.GetNode<AnimatedSprite2D>(
+				"AnimatedSprite2D"
+			);
+
+		attackerSprite.Play("Hitted");
 	}
 }

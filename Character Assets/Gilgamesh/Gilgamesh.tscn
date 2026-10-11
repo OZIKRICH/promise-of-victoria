@@ -1,0 +1,50 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/PlayerMovement.cs" id="1_move"]
+[ext_resource type="Script" path="res://Script/PlayerInput.cs" id="2_input"]
+[ext_resource type="Script" path="res://Script/AttackHitbox.cs" id="3_attack"]
+[ext_resource type="Script" path="res://Script/PlayerHealth.cs" id="4_health"]
+[ext_resource type="SpriteFrames" uid="uid://bor0dxn74xws5" path="res://Character Assets/Gilgamesh/SpriteFrames.tres" id="5_sprite_frames"]
+
+[sub_resource type="RectangleShape2D" id="hurtbox_shape"]
+size = Vector2(126, 184)
+
+[sub_resource type="RectangleShape2D" id="collision_shape"]
+size = Vector2(126, 184)
+
+[sub_resource type="RectangleShape2D" id="attack_shape"]
+size = Vector2(17, 96.625)
+
+[node name="Character" type="CharacterBody2D" unique_id=2000001]
+script = ExtResource("1_move")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2000002]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2000003]
+position = Vector2(-4, -114.5)
+shape = SubResource("hurtbox_shape")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000004]
+position = Vector2(-4, -114.5)
+shape = SubResource("collision_shape")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2000005]
+position = Vector2(0, -120)
+scale = Vector2(0.469, 0.465)
+sprite_frames = ExtResource("5_sprite_frames")
+animation = "Idle"
+
+[node name="PlayerInput" type="Node" parent="." unique_id=2000006]
+script = ExtResource("2_input")
+ControllerId = 1
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=2000007]
+monitoring = false
+script = ExtResource("3_attack")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=2000008]
+position = Vector2(-87.5, -135.1875)
+shape = SubResource("attack_shape")
+
+[node name="PlayerHealth" type="Node" parent="." unique_id=2000009]
+script = ExtResource("4_health")

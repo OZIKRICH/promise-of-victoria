@@ -1,230 +1,8 @@
-[gd_scene format=3 uid="uid://bsnwujr27avhk"]
+[gd_scene format=3 uid="uid://p1lhtodg0fma"]
 
-[ext_resource type="Texture2D" uid="uid://ddwo245fa6pqp" path="res://Background/Colloseum.jpeg" id="1_jjgbg"]
-[ext_resource type="Texture2D" uid="uid://dran3a18dfivl" path="res://Character Assets/Gatot/Block/BlockG1.png" id="2_6bp64"]
-[ext_resource type="Script" uid="uid://bemi8t771mhln" path="res://Script/PlayerMovement.cs" id="2_fdnlq"]
-[ext_resource type="Texture2D" uid="uid://2gklmh7j7gg0" path="res://Character Assets/Gatot/TakeHit/HittedG1.png" id="3_8cuat"]
-[ext_resource type="Texture2D" uid="uid://bjeprwjie67dt" path="res://Character Assets/Gatot/Run/RunG5.png" id="3_344ge"]
-[ext_resource type="Texture2D" uid="uid://bcwwx21fvjskf" path="res://Character Assets/Gatot/Jump/JumpG1.png" id="4_jkdf5"]
-[ext_resource type="Texture2D" uid="uid://3bejjyx5yd03" path="res://Character Assets/Gatot/TakeHit/HittedG2.png" id="4_o1aky"]
-[ext_resource type="Texture2D" uid="uid://c5w2ntawx08wb" path="res://Character Assets/Gatot/Run/RunG4.png" id="4_ynf5e"]
-[ext_resource type="Texture2D" uid="uid://qslfylydkpdp" path="res://Character Assets/Gatot/Run/RunG1.png" id="5_hptm8"]
-[ext_resource type="Texture2D" uid="uid://cybf5j6wysrrm" path="res://Character Assets/Gatot/TakeHit/HittedG3.png" id="5_kwxat"]
-[ext_resource type="Texture2D" uid="uid://nsy4gl6gw0r1" path="res://Character Assets/Gatot/Jump/JumpG3.png" id="5_wsu2k"]
-[ext_resource type="Texture2D" uid="uid://wtj3j6lcapkl" path="res://Character Assets/Gatot/Run/RunG2.png" id="6_d1ilt"]
-[ext_resource type="Texture2D" uid="uid://hbs0k8ay23ok" path="res://Character Assets/Gatot/Jump/JumpG2.png" id="6_k12tt"]
-[ext_resource type="Texture2D" uid="uid://dl15l0nc087nv" path="res://Character Assets/Gatot/Run/RunG3.png" id="7_6iyac"]
-[ext_resource type="Texture2D" uid="uid://lcv6rikr07ll" path="res://Character Assets/Gatot/Jump/JumpG4.png" id="7_h1bgf"]
-[ext_resource type="Texture2D" uid="uid://b2broa1q1n26t" path="res://Character Assets/Gatot/Jump/JumpG5.png" id="8_b3802"]
-[ext_resource type="Texture2D" uid="uid://bapludbshvcqu" path="res://Character Assets/Gatot/Punch/PunchG1.png" id="9_b3802"]
-[ext_resource type="Texture2D" uid="uid://cjud6ryu2wh2d" path="res://Character Assets/Gatot/Punch/PunchG2.png" id="10_fevyy"]
-[ext_resource type="Texture2D" uid="uid://dja7lsf1kixk5" path="res://Character Assets/Gatot/Punch/PunchG3.png" id="11_hibaj"]
-[ext_resource type="Texture2D" uid="uid://c6akhpo3oyx5p" path="res://Character Assets/Gatot/Punch/PunchG4.png" id="12_pdsj5"]
-[ext_resource type="Texture2D" uid="uid://cs18iyygcu6u8" path="res://Character Assets/Gatot/Punch/PunchG5.png" id="13_ee4r6"]
-[ext_resource type="Script" uid="uid://c4slut3l2lh7c" path="res://Script/PlayerInput.cs" id="19_hdf80"]
-[ext_resource type="Texture2D" uid="uid://cxkg6v5ja1mfk" path="res://Character Assets/Gilgamesh/Block/frame-1.png" id="19_r33sp"]
-[ext_resource type="Texture2D" uid="uid://cf324ctoyqphh" path="res://Character Assets/Gilgamesh/Jump/1J.png" id="20_hdf80"]
-[ext_resource type="Texture2D" uid="uid://c7uoermb5a01x" path="res://Character Assets/Gilgamesh/Jump/2J.png" id="21_jwpg7"]
-[ext_resource type="Texture2D" uid="uid://c7js4vbx0jpn5" path="res://Character Assets/Gilgamesh/Jump/3J.png" id="22_k2e45"]
-[ext_resource type="Texture2D" uid="uid://btpy15mj6lqv1" path="res://Character Assets/Gilgamesh/Jump/4J.png" id="23_536cc"]
-[ext_resource type="Texture2D" uid="uid://bbcq3bsros6at" path="res://Character Assets/Gilgamesh/TakeHit/1H.png" id="23_aa8k8"]
-[ext_resource type="Script" uid="uid://cu1pv7hlosdts" path="res://Script/AttackHitbox.cs" id="23_kwxat"]
-[ext_resource type="Script" uid="uid://b6qusw2amfav8" path="res://Script/PlayerHealth.cs" id="24_aa8k8"]
-[ext_resource type="Texture2D" uid="uid://balen7dgncl0h" path="res://Character Assets/Gilgamesh/Jump/Rev.J5.png" id="24_aqgau"]
-[ext_resource type="Texture2D" uid="uid://b5yj18hsaxpqd" path="res://Character Assets/Gilgamesh/TakeHit/2H.png" id="24_kqrg6"]
-[ext_resource type="Texture2D" uid="uid://d1juy0exhsahf" path="res://Character Assets/Gilgamesh/Punch/P1.png" id="25_8cuat"]
-[ext_resource type="Texture2D" uid="uid://crbr2rha5liit" path="res://Character Assets/Gilgamesh/TakeHit/3H.png" id="25_nwwfm"]
-[ext_resource type="Texture2D" uid="uid://d2tm62cnvkkbt" path="res://Character Assets/Gilgamesh/Punch/P2.png" id="26_o1aky"]
-[ext_resource type="Texture2D" uid="uid://661ya74swc2e" path="res://Character Assets/Gilgamesh/Punch/P3.png" id="27_kwxat"]
-[ext_resource type="Texture2D" uid="uid://b74darovbbslp" path="res://Character Assets/Gilgamesh/Punch/P4.png" id="28_aa8k8"]
-[ext_resource type="Texture2D" uid="uid://bech81s3gunbw" path="res://Character Assets/Gilgamesh/Punch/P5.png" id="29_kqrg6"]
-[ext_resource type="Texture2D" uid="uid://de5a3sybd22vd" path="res://Character Assets/Gilgamesh/Run/1.png" id="30_nwwfm"]
-[ext_resource type="Texture2D" uid="uid://c3r0immo1iebh" path="res://Character Assets/Gilgamesh/Run/2.png" id="31_s8vy0"]
-[ext_resource type="Texture2D" uid="uid://cvo318w00wj0l" path="res://Character Assets/Gilgamesh/Run/3.png" id="32_jut3y"]
-[ext_resource type="Texture2D" uid="uid://d27d4gjjllayg" path="res://Character Assets/Gilgamesh/Run/4.png" id="33_v2nl5"]
-[ext_resource type="Texture2D" uid="uid://c4ju5wjveakep" path="res://Character Assets/Gilgamesh/Run/5.png" id="34_dmskm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u856"]
-size = Vector2(189, 292)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnx7o"]
-size = Vector2(182, 300.00003)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2u856"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_8cuat")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_o1aky")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_kwxat")
-}],
-"loop": 1,
-"name": &"Hitted",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_6bp64")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_jkdf5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_wsu2k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_k12tt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_h1bgf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_b3802")
-}],
-"loop": 1,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_b3802")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_fevyy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_hibaj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_pdsj5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_ee4r6")
-}],
-"loop": 1,
-"name": &"Punch",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_hptm8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_d1ilt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_6iyac")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_ynf5e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_344ge")
-}],
-"loop": 1,
-"name": &"Walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpkvq"]
-size = Vector2(31.5, 236)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_el8ts"]
-size = Vector2(177, 300)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mnx7o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("23_aa8k8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_kqrg6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_nwwfm")
-}],
-"loop": 1,
-"name": &"Hitted",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_r33sp")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("20_hdf80")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_jwpg7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_k2e45")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_536cc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_aqgau")
-}],
-"loop": 1,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("25_8cuat")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_o1aky")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_kwxat")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_aa8k8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_kqrg6")
-}],
-"loop": 1,
-"name": &"Punch",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("30_nwwfm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_s8vy0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_jut3y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_v2nl5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_dmskm")
-}],
-"loop": 1,
-"name": &"Walk",
-"speed": 5.0
-}]
+[ext_resource type="Script" uid="uid://kjmc0cyre14y" path="res://Script/Main.cs" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://ddwo245fa6pqp" path="res://Background/Colloseum.jpeg" id="2_bg"]
+[ext_resource type="Script" uid="uid://bedvjhie4vra3" path="res://Script/HealthBarUI.cs" id="3_hud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iwcs"]
 size = Vector2(1149, 107)
@@ -233,100 +11,84 @@ size = Vector2(1149, 107)
 size = Vector2(66, 564.5)
 
 [node name="Main" type="Node2D" unique_id=1158803202]
+script = ExtResource("1_main")
 
 [node name="Colloseum" type="Sprite2D" parent="." unique_id=1426411019]
 position = Vector2(0.99999976, -78.999985)
 scale = Vector2(0.8992188, 0.8007812)
-texture = ExtResource("1_jjgbg")
+texture = ExtResource("2_bg")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1525494580]
+[node name="StaticBody2D" type="StaticBody2D" parent="Colloseum" unique_id=40920793]
+position = Vector2(-1.1120762, 430.82922)
+scale = Vector2(1.1120764, 1.2487805)
 
-[node name="Gatot" type="CharacterBody2D" parent="." unique_id=371975427]
-script = ExtResource("2_fdnlq")
-
-[node name="Hurtbox" type="Area2D" parent="Gatot" unique_id=2005925261]
-position = Vector2(-382, 63)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatot/Hurtbox" unique_id=319547757]
-position = Vector2(4.5, 7)
-shape = SubResource("RectangleShape2D_2u856")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatot" unique_id=1438745347]
-visible = false
-position = Vector2(-381, 70)
-scale = Vector2(1, 0.99999994)
-shape = SubResource("RectangleShape2D_mnx7o")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gatot" unique_id=1757772694]
-position = Vector2(-383, 81.5)
-scale = Vector2(0.6967742, 0.6814672)
-sprite_frames = SubResource("SpriteFrames_2u856")
-animation = &"Idle"
-
-[node name="PlayerInput" type="Node" parent="Gatot" unique_id=1285864950]
-script = ExtResource("19_hdf80")
-
-[node name="AttackHitbox" type="Area2D" parent="Gatot" unique_id=762434562]
-script = ExtResource("23_kwxat")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatot/AttackHitbox" unique_id=1388953964]
-position = Vector2(-255, 90)
-shape = SubResource("RectangleShape2D_wpkvq")
-
-[node name="PlayerHealth" type="Node" parent="Gatot" unique_id=1216858702]
-script = ExtResource("24_aa8k8")
-
-[node name="Gilgamesh" type="CharacterBody2D" parent="." unique_id=451558317]
-script = ExtResource("2_fdnlq")
-
-[node name="PlayerHealth" type="Node" parent="Gilgamesh" unique_id=2113839687]
-script = ExtResource("24_aa8k8")
-
-[node name="AttackHitbox" type="Area2D" parent="Gilgamesh" unique_id=437113433]
-position = Vector2(-73, 7)
-script = ExtResource("23_kwxat")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gilgamesh/AttackHitbox" unique_id=304021319]
-position = Vector2(266, 81)
-shape = SubResource("RectangleShape2D_wpkvq")
-
-[node name="PlayerInput" type="Node" parent="Gilgamesh" unique_id=1469958392]
-script = ExtResource("19_hdf80")
-ControllerId = 1
-
-[node name="Hurtbox" type="Area2D" parent="Gilgamesh" unique_id=1344962877]
-position = Vector2(-95, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gilgamesh/Hurtbox" unique_id=1055955252]
-position = Vector2(414, 27)
-shape = SubResource("RectangleShape2D_el8ts")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gilgamesh" unique_id=365939973]
-visible = false
-position = Vector2(322, 78)
-scale = Vector2(1, 0.99999994)
-shape = SubResource("RectangleShape2D_mnx7o")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gilgamesh" unique_id=1338645740]
-position = Vector2(320, 69.04)
-scale = Vector2(0.7295082, 0.7239382)
-sprite_frames = SubResource("SpriteFrames_mnx7o")
-animation = &"Hitted"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=40920793]
-position = Vector2(0, 266)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=835965075]
-position = Vector2(-0.5, 9.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colloseum/StaticBody2D" unique_id=835965075]
+position = Vector2(0, 23)
 shape = SubResource("RectangleShape2D_5iwcs")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1479497891]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colloseum/StaticBody2D" unique_id=1479497891]
 position = Vector2(-593, -315)
 shape = SubResource("RectangleShape2D_0gann")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1283336049]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colloseum/StaticBody2D" unique_id=1283336049]
 position = Vector2(599, -311)
 shape = SubResource("RectangleShape2D_0gann")
 
-[connection signal="area_entered" from="Gatot/AttackHitbox" to="Gatot/AttackHitbox" method="_on_area_entered"]
-[connection signal="area_entered" from="Gilgamesh/AttackHitbox" to="Gilgamesh/AttackHitbox" method="_on_area_entered"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1525494580]
+
+[node name="HealthBarUI" type="CanvasLayer" parent="." unique_id=999999999]
+script = ExtResource("3_hud")
+
+[node name="UIRoot" type="Control" parent="HealthBarUI" unique_id=999999989]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P1Label" type="Label" parent="HealthBarUI/UIRoot" unique_id=999999991]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 70.0
+offset_bottom = 50.0
+text = "P1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1HealthBar" type="ProgressBar" parent="HealthBarUI/UIRoot" unique_id=999999992]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 1
+offset_left = 70.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 50.0
+value = 100.0
+
+[node name="P2HealthBar" type="ProgressBar" parent="HealthBarUI/UIRoot" unique_id=999999994]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -370.0
+offset_top = 20.0
+offset_right = -70.0
+offset_bottom = 50.0
+grow_horizontal = 0
+value = 50.0
+
+[node name="P2Label" type="Label" parent="HealthBarUI/UIRoot" unique_id=999999995]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "P2"
+horizontal_alignment = 1
+vertical_alignment = 1

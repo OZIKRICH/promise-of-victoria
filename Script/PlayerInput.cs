@@ -56,4 +56,12 @@ public partial class PlayerInput : Node
 			JoyButton.A
 		);
 	}
+	
+	public bool IsBlockPressed()
+	{
+		return Input.IsJoyButtonPressed(
+			ControllerId,
+			JoyButton.X
+		);
+	}
 }
