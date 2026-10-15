@@ -123,6 +123,16 @@ public partial class PlayerHealth : Node
 				" GUARD BREAK / HEAVY HIT!"
 			);
 
+			// Play heavy punch sound on attacker
+			if (attacker != null)
+			{
+				var sfxHeavyPunch = attacker.GetNodeOrNull<AudioStreamPlayer2D>("SFX_HeavyPunch");
+				if (sfxHeavyPunch != null && !sfxHeavyPunch.Playing)
+				{
+					sfxHeavyPunch.Play();
+				}
+			}
+
 			TakeDamage(
 				heavyDamage,
 				GuardBreakStun

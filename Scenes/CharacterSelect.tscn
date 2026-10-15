@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b83pi4f21xj7i" path="res://Script/CharacterSelect.cs" id="1_abcde"]
 [ext_resource type="Texture2D" uid="uid://ddwo245fa6pqp" path="res://Background/Colloseum.jpeg" id="2_bg"]
+[ext_resource type="AudioStream" uid="uid://menu_music" path="res://Audio/Menu_music.mp3" id="3_audio"]
 
 [node name="CharacterSelect" type="Control" unique_id=2000001]
 layout_mode = 3
@@ -12,7 +13,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_abcde")
 
-[node name="Background" type="TextureRect" parent="." unique_id=2000002]
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=2000002]
+stream = ExtResource("3_audio")
+autoplay = true
+loop = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=2000003]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -5,6 +5,13 @@
 [ext_resource type="Script" path="res://Script/AttackHitbox.cs" id="3_attack"]
 [ext_resource type="Script" path="res://Script/PlayerHealth.cs" id="4_health"]
 [ext_resource type="SpriteFrames" uid="uid://bor0dxn74xws5" path="res://Character Assets/Gilgamesh/SpriteFrames.tres" id="5_sprite_frames"]
+[ext_resource type="AudioStream" path="res://Audio/Jump_on_action.mp3" id="6_sfx_jump"]
+[ext_resource type="AudioStream" path="res://Audio/On_touching_ground.mp3" id="7_sfx_land"]
+[ext_resource type="AudioStream" path="res://Audio/Walk.mp3" id="8_sfx_walk"]
+[ext_resource type="AudioStream" path="res://Audio/Ordinary_punch.mp3" id="9_sfx_punch"]
+[ext_resource type="AudioStream" path="res://Audio/heavy_punch.mp3" id="10_sfx_heavy_punch"]
+[ext_resource type="AudioStream" path="res://Audio/Block.mp3" id="11_sfx_block"]
+[ext_resource type="AudioStream" path="res://Audio/Stunned.mp3" id="12_sfx_stun"]
 
 [sub_resource type="RectangleShape2D" id="hurtbox_shape"]
 size = Vector2(126, 184)
@@ -17,6 +24,28 @@ size = Vector2(17, 96.625)
 
 [node name="Character" type="CharacterBody2D" unique_id=2000001]
 script = ExtResource("1_move")
+
+[node name="SFX_Jump" type="AudioStreamPlayer2D" parent="." unique_id=2000010]
+stream = ExtResource("6_sfx_jump")
+
+[node name="SFX_Land" type="AudioStreamPlayer2D" parent="." unique_id=2000011]
+stream = ExtResource("7_sfx_land")
+
+[node name="SFX_Walk" type="AudioStreamPlayer2D" parent="." unique_id=2000012]
+stream = ExtResource("8_sfx_walk")
+loop = true
+
+[node name="SFX_Punch" type="AudioStreamPlayer2D" parent="." unique_id=2000013]
+stream = ExtResource("9_sfx_punch")
+
+[node name="SFX_HeavyPunch" type="AudioStreamPlayer2D" parent="." unique_id=2000014]
+stream = ExtResource("10_sfx_heavy_punch")
+
+[node name="SFX_Block" type="AudioStreamPlayer2D" parent="." unique_id=2000015]
+stream = ExtResource("11_sfx_block")
+
+[node name="SFX_Stun" type="AudioStreamPlayer2D" parent="." unique_id=2000016]
+stream = ExtResource("12_sfx_stun")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=2000002]
 

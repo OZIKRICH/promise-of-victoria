@@ -29,12 +29,30 @@ public partial class PlayerMovement : CharacterBody2D
 	private AttackHitbox attackHitbox;
 
 	// =========================
+	// SFX PLAYERS
+	// =========================
+
+	private AudioStreamPlayer2D sfxJump;
+	private AudioStreamPlayer2D sfxLand;
+	private AudioStreamPlayer2D sfxWalk;
+	private AudioStreamPlayer2D sfxPunch;
+	private AudioStreamPlayer2D sfxHeavyPunch;
+	private AudioStreamPlayer2D sfxBlock;
+	private AudioStreamPlayer2D sfxStun;
+
+	// =========================
 	// MOVEMENT STATE
 	// =========================
 
 	private bool isStunned = false;
 
 	private float jumpDirection = 0.0f;
+
+	// For landing detection
+	private bool wasOnFloor = true;
+
+	// For walk sound management
+	private bool isWalkPlaying = false;
 
 	// =========================
 	// PUNCH STATE
@@ -72,6 +90,15 @@ public partial class PlayerMovement : CharacterBody2D
 			"AttackHitbox"
 		);
 
+		// Get SFX players
+		sfxJump = GetNode<AudioStreamPlayer2D>("SFX_Jump");
+		sfxLand = GetNode<AudioStreamPlayer2D>("SFX_Land");
+		sfxWalk = GetNode<AudioStreamPlayer2D>("SFX_Walk");
+		sfxPunch = GetNode<AudioStreamPlayer2D>("SFX_Punch");
+		sfxHeavyPunch = GetNode<AudioStreamPlayer2D>("SFX_HeavyPunch");
+		sfxBlock = GetNode<AudioStreamPlayer2D>("SFX_Block");
+		sfxStun = GetNode<AudioStreamPlayer2D>("SFX_Stun");
+
 		sprite.SpriteFrames.SetAnimationLoop(
 			"Punch",
 			false
@@ -92,6 +119,8 @@ public partial class PlayerMovement : CharacterBody2D
 		UpdateAttackHitboxPosition();
 
 		sprite.Play("Idle");
+
+		wasOnFloor = IsOnFloor();
 	}
 
 	// =========================================================
@@ -112,6 +141,17 @@ public partial class PlayerMovement : CharacterBody2D
 
 			return;
 		}
+
+		// =====================================
+		// LANDING DETECTION (must be before gravity/movement)
+		// =====================================
+
+		bool isOnFloorNow = IsOnFloor();
+		if (!wasOnFloor && isOnFloorNow)
+		{
+			OnLanded();
+		}
+		wasOnFloor = isOnFloorNow;
 
 		// =====================================
 		// GRAVITY
@@ -140,6 +180,12 @@ public partial class PlayerMovement : CharacterBody2D
 			HandleMovement();
 			HandleJump();
 		}
+
+		// =====================================
+		// WALK SOUND MANAGEMENT
+		// =====================================
+
+		HandleWalkSound();
 
 		// =====================================
 		// ANIMATION
@@ -224,6 +270,12 @@ public partial class PlayerMovement : CharacterBody2D
 			jumpDirection * speed,
 			-jumpForce
 		);
+
+		// Play jump sound
+		if (sfxJump != null && !sfxJump.Playing)
+		{
+			sfxJump.Play();
+		}
 	}
 
 	// =========================================================
@@ -268,8 +320,21 @@ public partial class PlayerMovement : CharacterBody2D
 
 		attackHitbox.StartAttack();
 
+		// Stop walk sound if playing
+		if (isWalkPlaying && sfxWalk != null && sfxWalk.Playing)
+		{
+			sfxWalk.Stop();
+			isWalkPlaying = false;
+		}
+
 		sprite.Frame = 0;
 		sprite.Play("Punch");
+
+		// Play punch sound
+		if (sfxPunch != null && !sfxPunch.Playing)
+		{
+			sfxPunch.Play();
+		}
 	}
 
 	// =========================================================
@@ -369,9 +434,22 @@ public partial class PlayerMovement : CharacterBody2D
 
 		attackHitbox.EndAttack();
 
+		// Stop walk sound if playing
+		if (isWalkPlaying && sfxWalk != null && sfxWalk.Playing)
+		{
+			sfxWalk.Stop();
+			isWalkPlaying = false;
+		}
+
 		sprite.Frame = 0;
 
 		sprite.Play("Block");
+
+		// Play block sound
+		if (sfxBlock != null && !sfxBlock.Playing)
+		{
+			sfxBlock.Play();
+		}
 
 		GD.Print(
 			Name,
@@ -491,7 +569,20 @@ public partial class PlayerMovement : CharacterBody2D
 
 			attackHitbox.EndAttack();
 
+			// Stop walk sound if playing
+			if (isWalkPlaying && sfxWalk != null && sfxWalk.Playing)
+			{
+				sfxWalk.Stop();
+				isWalkPlaying = false;
+			}
+
 			sprite.Play("Hitted");
+
+			// Play stun sound
+			if (sfxStun != null && !sfxStun.Playing)
+			{
+				sfxStun.Play();
+			}
 
 			GD.Print(
 				Name,
@@ -545,6 +636,45 @@ public partial class PlayerMovement : CharacterBody2D
 				attackHitboxOffset.X,
 				attackHitboxOffset.Y
 			);
+	}
+
+	// =========================================================
+	// LANDING
+	// =========================================================
+
+	private void OnLanded()
+	{
+		// Play land sound
+		if (sfxLand != null && !sfxLand.Playing)
+		{
+			sfxLand.Play();
+		}
+	}
+
+	// =========================================================
+	// WALK SOUND MANAGEMENT
+	// =========================================================
+
+	private void HandleWalkSound()
+	{
+		bool shouldWalk = IsOnFloor() && Mathf.Abs(Velocity.X) > 0.1f && !isPunching && !isBlocking;
+
+		if (shouldWalk && !isWalkPlaying)
+		{
+			if (sfxWalk != null && !sfxWalk.Playing)
+			{
+				sfxWalk.Play();
+			}
+			isWalkPlaying = true;
+		}
+		else if (!shouldWalk && isWalkPlaying)
+		{
+			if (sfxWalk != null && sfxWalk.Playing)
+			{
+				sfxWalk.Stop();
+			}
+			isWalkPlaying = false;
+		}
 	}
 
 	// =========================================================

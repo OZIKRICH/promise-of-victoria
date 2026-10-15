@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kjmc0cyre14y" path="res://Script/Main.cs" id="1_main"]
 [ext_resource type="Texture2D" uid="uid://ddwo245fa6pqp" path="res://Background/Colloseum.jpeg" id="2_bg"]
 [ext_resource type="Script" uid="uid://bedvjhie4vra3" path="res://Script/HealthBarUI.cs" id="3_hud"]
+[ext_resource type="AudioStream" uid="uid://incombat_music" path="res://Audio/InCombat.mp3" id="4_incombat_audio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iwcs"]
 size = Vector2(1149, 107)
@@ -12,6 +13,12 @@ size = Vector2(66, 564.5)
 
 [node name="Main" type="Node2D" unique_id=1158803202]
 script = ExtResource("1_main")
+
+[node name="CombatBGM" type="AudioStreamPlayer" parent="." unique_id=1158803203]
+stream = ExtResource("4_incombat_audio")
+autoplay = true
+loop = true
+volume_db = -10.0
 
 [node name="Colloseum" type="Sprite2D" parent="." unique_id=1426411019]
 position = Vector2(0.99999976, -78.999985)
